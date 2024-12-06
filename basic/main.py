@@ -1,3 +1,6 @@
+# Flask => 파이썬용 서버를 구축하는 모듈
+# jsonify => 텍스트를 JSON형태로 변경하는 모듈
+# request => 클라이언트가 서버로 보낸 HTTP요청에 접근하기 위한 객체이다.
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
@@ -15,7 +18,7 @@ def hello_flask():
 #GET /menus | 자료를 가지고 온다.
 @app.route('/menus')
 def get_menus():
-    return jsonify()
+    return jsonify(menus)
 
 #POST /menus
 @app.route('/menus', methods = ['POST'])
