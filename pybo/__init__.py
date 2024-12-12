@@ -14,9 +14,12 @@ def create_app():
 # '/' 주소가 호출이 되면
 # 밑에 있는 hello_pybo() 함수가 실행된다.
 # @app.route와 같은 애너테이션으로 url을 매핑하는 hello_pybo()와 같은 함수를 라우팅 함수라고 한다.
-    @app.route('/') 
-    def hello_pybo():
-        return 'Hello, Pybo!'
+
+    
+    from .views import main_views # view 폴더 안에 main_views라는 py파일을 import해서 사용
+    app.register_blueprint(main_views.bp) # main_view.py에 생성된 bp객체를 등록.
+    
+
 
 # 만약에 새로운 url 매핑이 필요하다면 라우팅 함수를
 # create_app 함수 안에 계속 추가해야 한다. 그러면 create_app() 함수는
